@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "express": "^4.17.2",
+    "hafas-client": "^5.22.1",
+    "node-fetch": "^3.1.0"
+  },
+  "name": "oebbtimetable",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "node server.js"
+  },
+  "author": "Tobias Kendlbacher",
+  "license": "MIT",
+  "description": ""
+}
