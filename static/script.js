@@ -46,10 +46,12 @@ function getUrlParameter(name) {
     return results === null ? '' : decode(results[1].replace(/\+/g, ' '));
 }
 
-anchor = decode(anchor);
+if (anchor != false) {
+    anchor = decode(anchor);
+}
 
 var amount = 30;
-var stationName = (anchor) ? anchor : String(document.getElementById("station-name-input").value) || "kendlbat--nostation";
+var stationName = (anchor != false) ? anchor : String(document.getElementById("station-name-input").value) || "kendlbat--nostation";
 var cooldown = Date.now();
 var departures = [];
 var currentStation = String(stationName);
