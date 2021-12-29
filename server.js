@@ -35,14 +35,10 @@ app.get("/departures", async function (req, res) {
         res.send("Please set station and amount");
         return false;
     }
-
-    console.log(req.query);
-
+    console.log("New request for: " + station);
     client.locations(station).then((data) => {
-        console.log(data[0]);
         var stationID = data[0].id;
         getNDepartures(stationID, amount).then((departures) => {
-            console.log(departures);
             res.send(departures);
         });
     });
@@ -51,5 +47,5 @@ app.get("/departures", async function (req, res) {
 app.use(express.static("static"));
 
 app.listen(process.env.PORT || 80, () => {
-    console.log('OEBB Timetable reachable on http://localhost:80');
+    console.log('OEBB Timetable reachable on http://localhost:' + (process.env.PORT || 80));
 });
