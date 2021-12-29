@@ -50,6 +50,6 @@ app.get("/departures", async function (req, res) {
 
 app.use(express.static("static"));
 
-app.listen(80, () => {
+app.listen(process.env.PORT || 80, () => {
     console.log('OEBB Timetable reachable on http://localhost:80');
 });
