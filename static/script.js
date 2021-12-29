@@ -34,7 +34,7 @@ var anchor = getAnchor();
 
 // Replace %xx with character
 function decode(str) {
-    return decodeURIComponent(str.replace(/%([0-9A-F]{2})/g, function(match, p1) {
+    return decodeURIComponent(String(str).replace(/%([0-9A-F]{2})/g, function(match, p1) {
         return String.fromCharCode('0x' + p1);
     }));
 }
