@@ -21,23 +21,26 @@
 
         #departures-wrapper {
             display: block;
-            left: 0px;
+            top: 4rem;
             width: 100%;
             overflow: hidden;
-            border-bottom: 1px solid black;
-            border-top: 1px solid black;
+            border: 0px;
         }
 
         #hud {
             display: block;
+            position: fixed;
+            top: 0px;
+            background-color: #0000ff;
             left: 0px;
             width: 100%;
             overflow: hidden;
-            height: fit-content;
+            height: 4.4rem;
             padding: 0.2rem;
             font-size: 3rem;
             color: white;
             font-family: 'JetBrains Mono', monospace;
+            border-bottom: 1px solid black;
         }
 
         #clock {      
@@ -67,11 +70,17 @@
         ul > li {
             padding: .2em 0px;
         }
+        ul > li:first-child {
+            margin-top: 4.4rem;
+        }
         ul > li:nth-child(even) {
             background-color: #0000ff;
         }
         ul > li:nth-child(odd) {
             background-color: #0000bb;
+        }
+        ul > li:last-child {
+            margin-bottom: 2.4rem;
         }
         ul > li > div {
             display: inline;
@@ -103,9 +112,31 @@
             padding: 0px 1em;
         }
 
-        .hidden {
-            display: none;
+        #busses-toggle-wrapper {
+            float: right;
         }
+
+        #busses-toggle-wrapper:not(:hover) button {
+            visibility: hidden;
+        }
+
+        #busses-toggle-wrapper:hover button {
+            visibility: visible;
+            outline: none;
+        }
+
+        #show-busses {
+            /*button should be same height as input*/
+            height: 100%;
+            width: 100%;
+            background-color: #0000bb;
+            border: 0px;
+            color: white;
+            border-radius: 4px;
+            padding: 1px .2em;
+            font-size: 1em;
+        }
+
         footer {
             display: block;
             position: fixed;
@@ -113,6 +144,7 @@
             left: 0px;
             width: 100%;
             height: 2em;
+            border-top: 1px solid black;
             background-color: #0000ff;
             color: white;
             font-size: 1.2rem;
@@ -126,18 +158,24 @@
         a:hover {
             color: red;
         }
+
+        .bus {
+            color: #ff8000;
+        }
     </style>
 </head>
 <body>
+    <div id="departures-wrapper"></div>
     <div id="hud">
         <div id="clock"></div>
         <div id="title">
             <input max="25" id="station-name-input" value="Villach Hbf"></input>
         </div>
-        <button id="update-station" class="hidden">UPDATE</button>
+        <div id="busses-toggle-wrapper">
+            <button id="show-busses">Toggle busses</button>
+        </div>
     </div>
-    <div id="departures-wrapper"></div>
+    <footer id="footer">Made with &#10084;&#65039; by <a href="https://github.com/kendlbat">Tobias Kendlbacher</a></footer>
     <script src="/script.js"></script>
-    <footer>Made with &#10084;&#65039; by <a href="https://github.com/kendlbat">Tobias Kendlbacher</a></footer>
 </body>
 </html>
