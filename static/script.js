@@ -226,7 +226,7 @@ setInterval(async function () {
 }, 60000);
 
 if (showBusses) {
-    document.getElementById("footer").innerHTML = "Made with &#10084;&#65039; by Tobias Kendlbacher <span class=\"bus\">(*Busses shown in orange)</span>";
+    document.getElementById("footer").innerHTML = "Made with &#10084;&#65039; by <a href=\"https://github.com/kendlbat\">Tobias Kendlbacher</a> <span class=\"bus\">(*Busses shown in orange)</span>";
 } else {
-    document.getElementById("footer").innerHTML = "Made with &#10084;&#65039; by Tobias Kendlbacher";
+    document.getElementById("footer").innerHTML = "Made with &#10084;&#65039; by <a href=\"https://github.com/kendlbat\">Tobias Kendlbacher</a>";
 }
