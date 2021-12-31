@@ -169,7 +169,7 @@ async function updateHTMLTimetable(data) {
         name.classList.add("product-name");
 
         var destination = document.createElement("div");
-        destination.innerHTML = departure.line.mode == "bus" ? "<span class=\"bus\">" + String(departure.direction || "N/A") + "</span>" : (departure.direction || "N/A");
+        destination.innerHTML = departure.line.mode == "bus" ? "<span class=\"bus\">" + String(departure.direction || "N/A") + "</span>" : (departure.line.productName == "Tram" ? "<span class=\"tram\">" + String(departure.direction || "N/A") + "</span>" : String(departure.direction || "N/A"));
         var platform = document.createElement("div");
         platform.innerHTML = departure.platform || "-";
         row.appendChild(time);

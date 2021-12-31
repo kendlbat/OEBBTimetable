@@ -17,7 +17,7 @@ async function getNDepartures(station, n, showBusses) {
     let departures = [];
     for (let i = 0; i < n; i += 10) {
         try {
-            var batch = await client.departures(station, { products: {bus: showBusses}, results: 10, duration: 600, when: (departures.length == 0 ? new Date() : departures[departures.length - 1].when)});
+            var batch = await client.departures(station, { products: {bus: showBusses, tram: showBusses}, results: 10, duration: 600, when: (departures.length == 0 ? new Date() : departures[departures.length - 1].when)});
         } catch (e) {
             var batch = [{direction: "Station not found", platform: "N/A", line: {mode: "special"}, when: new Date(2069, 1, 1)}];
         }
