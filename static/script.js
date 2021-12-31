@@ -159,7 +159,7 @@ async function updateHTMLTimetable(data) {
 
         var name = document.createElement("div");
         name.style.fontFamily = "\"Roboto Mono\", monospace";
-        let nameString = departure.line.productName || "";
+        let nameString = departure.line.productName || (departure.line.product == "subway" ? "U" : "-");
         name.innerHTML += nameString;
         
         // For every character below length 3, insert <span class="hidden-dot">.</span>
