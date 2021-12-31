@@ -137,6 +137,10 @@
             font-size: 1em;
         }
 
+        .product-name {
+            padding-right: 0.7em !important;
+        }
+
         footer {
             display: block;
             position: fixed;
@@ -162,6 +166,65 @@
         .bus {
             color: #ff8000;
         }
+
+        nomobile * {
+            display: none;
+        }
+
+        noscript {
+            display: block;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            background-color: #0000ff;
+            color: white;
+            font-size: 2rem;
+            font-family: "Roboto", sans-serif;
+            text-align: center;
+            padding-top: 2em;
+        }
+
+        span.hidden-dot {
+            content: ".";
+            visibility: hidden;
+        }
+
+        @media screen and (max-height: 500px) {
+            footer {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 800px) {
+            nomobile > div {
+                display: block;
+                position: fixed;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
+                background-color: #0000ff;
+                color: white;
+                font-size: 2rem;
+                font-family: "Roboto", sans-serif;
+                text-align: center;
+                padding-top: 2em;
+            }
+            nomobile * {
+                display: initial;
+            }
+            * {
+                overflow: hidden;
+            }
+        }
+        @media screen and (hover: none) {
+            #busses-toggle-wrapper:not(:hover) button {
+                visibility: visible;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -176,6 +239,16 @@
         </div>
     </div>
     <footer id="footer">Made with &#10084;&#65039; by <a href="https://github.com/kendlbat">Tobias Kendlbacher</a></footer>
+    <nomobile>
+        <div>
+            <p>I am sorry to have to inform you that this page is not opimized for devices which are less than 900 pixels wide. Please try using the "Desktop Site"-option on your mobile device or resize your browser window.</p>
+        </div>
+    </nomobile>
+    <noscript>
+        <div>
+            <p>Please enable JavaScript to use this page.</p>
+        </div>
+    </noscript>
     <script src="/script.js"></script>
 </body>
 </html>

@@ -142,11 +142,24 @@ async function updateHTMLTimetable(data) {
         var row = document.createElement("li");
         var time = document.createElement("div");
         time.innerHTML = formatTime(departure.when);
+
+        var name = document.createElement("div");
+        name.style.fontFamily = "\"Roboto Mono\", monospace";
+        let nameString = departure.line.productName || "";
+        name.innerHTML += nameString;
+        
+        // For every character below length 3, insert <span class="hidden-dot">.</span>
+        for (let i = nameString.length; i < 4; i++) {
+            name.innerHTML += "<span class=\"hidden-dot\">.</span>";
+        }
+        name.classList.add("product-name");
+
         var destination = document.createElement("div");
-        destination.innerHTML = departure.line.mode == "bus" ? "<span class=\"bus\">" + String(departure.direction) + "</span>" : departure.direction;
+        destination.innerHTML = departure.line.mode == "bus" ? "<span class=\"bus\">" + String(departure.direction || "N/A") + "</span>" : (departure.direction || "N/A");
         var platform = document.createElement("div");
-        platform.innerHTML = departure.platform;
+        platform.innerHTML = departure.platform || "-";
         row.appendChild(time);
+        row.appendChild(name);
         row.appendChild(destination);
         row.appendChild(platform);
         tableBody.appendChild(row);
