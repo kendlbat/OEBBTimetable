@@ -135,6 +135,20 @@ async function updateHTMLTimetable(data) {
     var tableBody = document.createElement("ul");
 
     let i = 0;
+
+    if (data.length == 0) {
+        data.push({
+            id: 0,
+            direction: "No departures found",
+            platform: "-",
+            when: new Date(2069, 1, 1),
+            line: {
+                productName: "-",
+                mode: "special"
+            }
+        });
+    }
+
     for (let departure of data) {
         if (i > amount) {
             break;
