@@ -8,7 +8,7 @@ const client = createClient(oebbProfile, 'kendlbat-htlvil-timetable');
 
 app.use(require('cookie-parser')());
 
-app.get("/", (req, res) => {
+app.get(["/", "/index", "/home"], (req, res) => {
     res.redirect("/index.html");
 });
 

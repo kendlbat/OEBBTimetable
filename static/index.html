@@ -171,7 +171,7 @@
             display: none;
         }
 
-        #printfooter {
+        printfooter {
             display: none;
         }
 
@@ -223,7 +223,7 @@
                 overflow: hidden;
             }
         }
-        @media screen and (hover: none) {
+        @media screen and not (hover: none) {
             #busses-toggle-wrapper:not(:hover) button {
                 visibility: visible;
             }
@@ -233,10 +233,27 @@
             footer {
                 display: block;
                 font-size: 1.8rem;
+                transform: translate(0px, -1.2rem);
             }
-            #printfooter {
+            printfooter {
                 display: block;
-                font-size: 1.4rem;
+                font-size: 1.6rem;
+                /*position below footer*/
+                position: fixed;
+                bottom: 0px;
+                left: 50%;
+                transform: translate(-50%, 0px);
+                background-color: #0000ff;
+                text-align: center;
+                font-family: "Roboto", sans-serif;
+            }
+            *:not(.bus) {
+                background-color: white;
+                color: black;
+            }
+
+            .bus {
+                background-color: white;
             }
         }
 
@@ -255,8 +272,10 @@
     </div>
     <footer id="footer">
         <div>Made with &#10084;&#65039; by <a href="https://github.com/kendlbat">Tobias Kendlbacher</a></div>
-        <div id="printfooter">https://github.com/kendlbat</div>
     </footer>
+    <printfooter>
+        https://github.com/kendlbat
+    </printfooter>
     <nomobile>
         <div>
             <p>I am sorry to have to inform you that this page is not opimized for devices which are less than 900 pixels wide. Please try using the "Desktop Site"-option on your mobile device or resize your browser window.</p>
