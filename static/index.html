@@ -171,6 +171,10 @@
             display: none;
         }
 
+        #printfooter {
+            display: none;
+        }
+
         noscript {
             display: block;
             position: fixed;
@@ -225,6 +229,17 @@
             }
         }
 
+        @media print {
+            footer {
+                display: block;
+                font-size: 1.8rem;
+            }
+            #printfooter {
+                display: block;
+                font-size: 1.4rem;
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -238,7 +253,10 @@
             <button id="show-busses">Toggle busses</button>
         </div>
     </div>
-    <footer id="footer">Made with &#10084;&#65039; by <a href="https://github.com/kendlbat">Tobias Kendlbacher</a></footer>
+    <footer id="footer">
+        <div>Made with &#10084;&#65039; by <a href="https://github.com/kendlbat">Tobias Kendlbacher</a></div>
+        <div id="printfooter">https://github.com/kendlbat</div>
+    </footer>
     <nomobile>
         <div>
             <p>I am sorry to have to inform you that this page is not opimized for devices which are less than 900 pixels wide. Please try using the "Desktop Site"-option on your mobile device or resize your browser window.</p>
