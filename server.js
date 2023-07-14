@@ -71,7 +71,7 @@ app.get("/departures", async function (req, res) {
         res.status(429).send([{direction: "Too many requests!", id: "0", platform: "429", line: {mode: "special"}, when: new Date(2069, 1, 1)}]);
         return;
     } else {
-        res.cookie("stationName", station, { maxAge: 10000, sameSite: true });
+        res.cookie("stationName", station, { maxAge: 1000, sameSite: true });
     }
 
     console.log(String("New request for: " + station).padEnd(30) + "\tBusses: " + bus);

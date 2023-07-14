@@ -220,9 +220,9 @@ document.getElementById("show-busses").onclick = async function () {
 };
 
 
-updateTimetable(false);
+updateTimetable(true);
 setInterval(async function () {
-    updateTimetable(false);
+    updateTimetable(true);
 }, 60000);
 
 if (showBusses) {
