@@ -1,12 +1,17 @@
 const createClient = require("hafas-client");
 const oebbProfile = require('hafas-client/p/oebb/index.js');
 const express = require('express');
+const cors = require('cors');
 
 const app = express();
 
 const client = createClient(oebbProfile, 'kendlbat-htlvil-timetable');
 
 app.use(require('cookie-parser')());
+app.use(cors({
+    origin: /\.kendlbat\.dev/,
+    optionsSuccessStatus: 200
+}));
 
 app.get(["/", "/index", "/home"], (req, res) => {
     res.redirect("/index.html");

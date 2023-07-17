@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
     "express": "^4.17.2",
     "hafas-client": "^5.22.1"
   },
@@ -8,10 +9,13 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "test": "PORT=3000 node server.js",
+    "test": "PORT=3000 nodemon server.js",
     "start": "node server.js"
   },
   "author": "Tobias Kendlbacher",
   "license": "MIT",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
 }
