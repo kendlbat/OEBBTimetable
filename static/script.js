@@ -83,6 +83,7 @@ async function updateTimetable(force) {
     // Remove all past departures
     document.getElementById("station-name-input").disabled = true;
     document.getElementById("station-name-input").blur();
+    document.body.style.cursor = 'progress';
 
     for (let departure of departures) {
         if (departure.when < Date.now()) {
@@ -117,6 +118,7 @@ async function updateTimetable(force) {
         }
     }
 
+    document.body.style.cursor = "";
     document.getElementById("station-name-input").disabled = false;
     document.getElementById("station-name-input").focus();
 }
