@@ -81,6 +81,8 @@ if (localStorage.getItem("showBusses") == "true") {
 async function updateTimetable(force) {
     console.log("Updating timetable...");
     // Remove all past departures
+    document.getElementById("station-name-input").disabled = true;
+
     for (let departure of departures) {
         if (departure.when < Date.now()) {
             departures = departures.filter(d => d.id != departure.id);
@@ -113,6 +115,8 @@ async function updateTimetable(force) {
             ];
         }
     }
+
+    document.getElementById("station-name-input").disabled = false;
 }
 
 async function getTimetableFromServer() {
