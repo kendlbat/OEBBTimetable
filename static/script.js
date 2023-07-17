@@ -203,6 +203,8 @@ document.getElementById("station-name-input").onkeyup = async function (e) {
         }
         e.preventDefault();
         stationName = document.getElementById("station-name-input").value;
+        window.location.hash = "#" + stationName;
+        anchor = stationName;
         await updateTimetable(true);
         cooldown = Date.now() + 10000;
     }
