@@ -59,6 +59,7 @@ window.addEventListener("hashchange", (e) => {
     if (window.location.hash === stationName) return;
     if (window.location.hash.trim() === "") return;
 
+    anchor = window.location.hash;
     document.getElementById("station-name-input").value = anchor;
     stationName = window.location.hash;
     updateTimetable(true);
