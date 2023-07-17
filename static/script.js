@@ -65,6 +65,16 @@ if (anchor) {
     updateTimetable(true);
 }
 
+window.addEventListener("hashchange", (e) => {
+    if (window.location.hash == undefined) return;
+    if (window.location.hash === stationName) return;
+    if (window.location.hash.trim() === "") return;
+
+    document.getElementById("station-name-input").value = anchor;
+    stationName = window.location.hash;
+    updateTimetable(true);
+});
+
 if (localStorage.getItem("showBusses") == "true") {
     showBusses = true;
     document.getElementById("show-busses").innerHTML = "Hide busses";
