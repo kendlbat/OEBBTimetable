@@ -51,7 +51,6 @@ var prev_showBusses = showBusses;
 if (anchor) {
     document.getElementById("station-name-input").value = anchor;
     stationName = anchor;
-    updateTimetable(true);
 }
 
 window.addEventListener("hashchange", (e) => {
