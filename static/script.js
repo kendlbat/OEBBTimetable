@@ -198,15 +198,10 @@ setInterval(async function () {
 
 document.getElementById("station-name-input").onkeyup = async function (e) {
     if (e.key == "Enter") {
-        if (cooldown > Date.now()) {
-            return false;
-        }
         e.preventDefault();
         stationName = document.getElementById("station-name-input").value;
         window.location.hash = "#" + stationName;
         anchor = stationName;
-        await updateTimetable(true);
-        cooldown = Date.now() + 10000;
     }
 };
 
