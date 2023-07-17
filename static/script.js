@@ -82,6 +82,7 @@ async function updateTimetable(force) {
     console.log("Updating timetable...");
     // Remove all past departures
     document.getElementById("station-name-input").disabled = true;
+    document.getElementById("station-name-input").blur();
 
     for (let departure of departures) {
         if (departure.when < Date.now()) {
@@ -117,6 +118,7 @@ async function updateTimetable(force) {
     }
 
     document.getElementById("station-name-input").disabled = false;
+    document.getElementById("station-name-input").focus();
 }
 
 async function getTimetableFromServer() {
