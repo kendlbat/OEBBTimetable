@@ -201,6 +201,7 @@ document.getElementById("station-name-input").onkeyup = async function (e) {
         e.preventDefault();
         stationName = document.getElementById("station-name-input").value;
         window.location.hash = "#" + stationName;
+        window.dispatchEvent(new HashChangeEvent(stationName));
         anchor = stationName;
     }
 };
