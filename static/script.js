@@ -97,12 +97,12 @@ async function updateTimetable(force) {
     if (document.cookie.includes("stationName")) {
         console.log("Stopped updating because of throttle!");
         currentStation = "kendlbat--throttlestation";
-        updateHTMLTimetable(departures);
+        await updateHTMLTimetable(departures);
     } else if (new Date(timeLastFetched).getDay() != new Date(Date.now()).getDay()) {
-        getTimetableFromServer();
+        await getTimetableFromServer();
     } else if (prev_showBusses != showBusses) {
         prev_showBusses = showBusses;
-        getTimetableFromServer();
+        await getTimetableFromServer();
     } else if (departures.length == 0) {
         await getTimetableFromServer();
         if (departures.length = 0) {
