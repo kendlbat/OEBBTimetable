@@ -23,14 +23,7 @@ function formatTime(date) {
     return [hours, minutes].join(':');
 }
 
-function getAnchor() {
-    var currentUrl = document.URL,
-	urlParts   = currentUrl.split('#');
-		
-    return (urlParts.length > 1) ? urlParts[1] : false;
-}
-
-var anchor = getAnchor();
+var anchor = window.location.hash;
 
 // Replace %xx with character
 function decode(str) {
@@ -44,10 +37,6 @@ function getUrlParameter(name) {
     var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
     var results = regex.exec(location.search);
     return results === null ? '' : decode(results[1].replace(/\+/g, ' '));
-}
-
-if (anchor != false) {
-    anchor = decode(anchor);
 }
 
 var amount = 30;
