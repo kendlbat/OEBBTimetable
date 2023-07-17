@@ -124,7 +124,7 @@ async function updateTimetable(force) {
 async function getTimetableFromServer() {
     console.log("Making timetable request to server...");
     timeLastFetched = Date.now();
-    fetch(`/departures?station=${stationName}&amount=${amount}` + String(showBusses ? "&bus=1" : ""), {
+    await fetch(`/departures?station=${stationName}&amount=${amount}` + String(showBusses ? "&bus=1" : ""), {
         method: "GET"
     }).then(function (response) {
         console.log(response);
