@@ -23,7 +23,7 @@ function formatTime(date) {
     return [hours, minutes].join(':');
 }
 
-var anchor = decode(window.location.hash.slice(-1));
+var anchor = decode(window.location.hash.slice(1));
 
 // Replace %xx with character
 function decode(str) {
@@ -59,7 +59,7 @@ window.addEventListener("hashchange", (e) => {
     if (window.location.hash === stationName) return;
     if (window.location.hash.trim() === "") return;
 
-    anchor = decode(window.location.hash.slice(-1));
+    anchor = decode(window.location.hash.slice(1));
     document.getElementById("station-name-input").value = anchor;
     stationName = anchor;
     updateTimetable(true);
